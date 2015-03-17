@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7445730C-1280-4BA1-B172-794ED412574E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SqlMigratorWinform</RootNamespace>
+    <AssemblyName>SqlMigratorWinform</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentMigrator">
+      <HintPath>..\packages\FluentMigrator.1.5.0.0\lib\40\FluentMigrator.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Constants.cs" />
+    <Compile Include="DataAccess\DbAccessCommand.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataAccess\DbAccessInformation.cs" />
+    <Compile Include="DataAccess\DbAccessor.cs" />
+    <Compile Include="DataAccess\DbAccessParameter.cs" />
+    <Compile Include="DataAccess\DbAccessParameterCollection.cs" />
+    <Compile Include="DataAccess\DbAccessType.cs" />
+    <Compile Include="DataAccess\DbDataPager.cs" />
+    <Compile Include="DataAccess\OdbcAccessCommand.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataAccess\OleDbAccessCommand.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataAccess\OracleAccessCommand.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataAccess\SqlAccessCommand.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlHelper.cs" />
+    <Compile Include="Utility\Arithmetic.cs" />
+    <Compile Include="Utility\BytesHelper.cs" />
+    <Compile Include="Utility\CreateInstanceHandler.cs" />
+    <Compile Include="Utility\DataConvert.cs" />
+    <Compile Include="Utility\DataProcessHandler.cs" />
+    <Compile Include="Utility\DataProcessProxy.cs" />
+    <Compile Include="Utility\DictionaryEnumerator.cs" />
+    <Compile Include="Utility\FileCache.cs" />
+    <Compile Include="Utility\Generic.cs" />
+    <Compile Include="Utility\LogCounter.cs" />
+    <Compile Include="Utility\Logger.cs" />
+    <Compile Include="Utility\LogObject.cs" />
+    <Compile Include="Utility\ParameterChecker.cs" />
+    <Compile Include="Utility\ReadChildElementHandler.cs" />
+    <Compile Include="Utility\ReadFileHandler.cs" />
+    <Compile Include="Utility\SerializeHelper.cs" />
+    <Compile Include="Utility\Singleton.cs" />
+    <Compile Include="Utility\TraceObject.cs" />
+    <Compile Include="Utility\Tracer.cs" />
+    <Compile Include="Utility\TypeHelper.cs" />
+    <Compile Include="Utility\XmlCache.cs" />
+    <Compile Include="Utility\XmlHelper.cs" />
+    <Compile Include="Utility\XmlSkipingReader.cs" />
+    <Compile Include="Utility\XslCache.cs" />
+    <Compile Include="VersionInfo.cs" />
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SqlMigratorCore\SqlMigratorCore.csproj">
+      <Project>{fc5dbd55-e6ad-41ea-aa03-2338605de848}</Project>
+      <Name>SqlMigratorCore</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
